@@ -13,22 +13,22 @@ def play():
     num = 3
     for i in range(0, num):
         counterList.append(num)
-    return render_template( 'index.html', counter = counterList )
+    return render_template( 'index.html', counter = counterList, color = "lightblue" )
 
 @app.route( '/play/<int:num>', methods=['GET'] )  #/<int:num>
 def playNum( num):
     counterList = []
     for i in range(0, num):
         counterList.append(num)
-    return render_template( 'index.html', counter = counterList )
-'''
-@app.route( '/play/<int:num>/<str:color>', methods=['GET'] )  #/<int:num>
+    return render_template( 'index.html', counter = counterList, num = num, color = "lightblue" )
+
+@app.route( '/play/<int:num>/<color>', methods=['GET'] )  #/<int:num>
 def playNumColor( num, color ):
     counterList = []
     for i in range(0, num):
         counterList.append(num)
-    return render_template( 'index.html', counter = counterList, color =color )
-'''
+    return render_template( 'index.html', counter = counterList, color = color  )
+
 
 
 if __name__ == "__main__":
